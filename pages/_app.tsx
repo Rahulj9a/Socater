@@ -1,11 +1,15 @@
-import Layout from '@/Components/Layout'
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
+import Layout from "@/Components/Layout";
+/* import Modal from "@/Components/Modal"; */
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <Layout>
-    <Component {...pageProps} />
-    </Layout>
-  )
+     return (
+          <>
+               {/* <Modal isOpen /> */}
+               <Layout>
+                    <Component {...pageProps} />
+               </Layout>
+          </>
+     );
 }

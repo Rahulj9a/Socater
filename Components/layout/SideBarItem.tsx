@@ -15,10 +15,10 @@ const SideBarItem: React.FC<SidebarItemProps> = ({
 }) => {
      return (
           <div className="flex flex-row items-center">
-               <div className="relative rounded-full h-14 w-14 flex items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 curser-pointer lg:hidden">
+               <div className="relative rounded-full h-14 w-14 flex items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer lg:hidden">
                     <Icon size={28} color="white" />
                </div>
-               <div className="relative rounded-full gap-4 items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 curser-pointer hidden lg:flex">
+               <div className="relative rounded-full gap-4 items-center justify-center p-4 hover:bg-slate-300 hover:bg-opacity-10 cursor-pointer hidden lg:flex">
                     <Icon size={24} color="white" />
                     <p className="hidden lg:block text-white text-xl">
                          {label}

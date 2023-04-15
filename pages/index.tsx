@@ -1,3 +1,9 @@
+import Header from "@/Components/Header";
+
 export default function Home() {
-     return <div className="text-sky-300 text-3xl">Hello world 2</div>;
+     return (
+          <>
+               <Header label="Home" />
+          </>
+     );
 }
