@@ -1,27 +1,31 @@
+import useRegisterModal from "@/Hooks/useRegisterModal";
 import useLoginModal from "@/Hooks/useLoginModal";
 import { useCallback, useState } from "react";
 import Input from "../Input";
 import Modal from "../Modal";
 
-const LoginModal = () => {
+const RegisterModal = () => {
+     const registerModal = useRegisterModal();
      const loginModal = useLoginModal();
 
      const [email, setemail] = useState("");
      const [password, setpassword] = useState("");
+     const [name, setname] = useState("");
+     const [userName, setuserName] = useState("");
      const [loading, setloading] = useState(false);
 
      const onSubmit = useCallback(async () => {
           try {
                setloading(true);
-               //Todo:add login
+               //Todo:add Register and login
 
-               loginModal.onClose();
+               registerModal.onClose();
           } catch (error) {
                console.log(error);
           } finally {
                setloading(false);
           }
-     }, [loginModal]);
+     }, [registerModal]);
 
      const bodyContent = (
           <div className="flex flex-col gap-4">
@@ -29,6 +33,18 @@ const LoginModal = () => {
                     placeholder="Email"
                     onChange={(e) => setemail(e.target.value)}
                     value={email}
+                    disabled={loading}
+               />
+               <Input
+                    placeholder="Name"
+                    onChange={(e) => setname(e.target.value)}
+                    value={name}
+                    disabled={loading}
+               />
+               <Input
+                    placeholder="UserName"
+                    onChange={(e) => setuserName(e.target.value)}
+                    value={userName}
                     disabled={loading}
                />
                <Input
@@ -44,10 +60,10 @@ const LoginModal = () => {
           <div>
                <Modal
                     disabled={loading}
-                    isOpen={loginModal.isOpen}
-                    title="Login"
-                    actionLabel="Sign in"
-                    onClose={loginModal.onClose}
+                    isOpen={registerModal.isOpen}
+                    title="Create an account"
+                    actionLabel="Regsiter"
+                    onClose={registerModal.onClose}
                     onSubmit={onSubmit}
                     body={bodyContent}
                />
@@ -55,4 +71,4 @@ const LoginModal = () => {
      );
 };
 
-export default LoginModal;
+export default RegisterModal;
