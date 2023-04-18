@@ -1,8 +1,11 @@
 import useRegisterModal from "@/Hooks/useRegisterModal";
 import useLoginModal from "@/Hooks/useLoginModal";
+import { signIn } from "next-auth/react";
+import { toast } from "react-hot-toast";
 import { useCallback, useState } from "react";
 import Input from "../Input";
 import Modal from "../Modal";
+import axios from "axios";
 
 const RegisterModal = () => {
      const registerModal = useRegisterModal();
@@ -11,13 +14,14 @@ const RegisterModal = () => {
      const [email, setemail] = useState("");
      const [password, setpassword] = useState("");
      const [name, setname] = useState("");
-     const [userName, setuserName] = useState("");
+     const [username, setuserName] = useState("");
      const [loading, setloading] = useState(false);
 
      const onToggle = useCallback(() => {
           if (loading) {
                return;
           }
+
           registerModal.onClose();
           loginModal.onOpen();
      }, [loading, loginModal, registerModal]);
@@ -25,15 +29,28 @@ const RegisterModal = () => {
      const onSubmit = useCallback(async () => {
           try {
                setloading(true);
-               //Todo:add Register and login
+
+               //add Register and login
+               console.log(name, username, password, email);
+               await axios.post("/api/register", {
+                    email,
+                    password,
+                    username,
+                    name,
+               });
+
+               toast.success("Account created");
+
+               signIn("credentials", { email, password });
 
                registerModal.onClose();
           } catch (error) {
                console.log(error);
+               toast.error("Something went wrong");
           } finally {
                setloading(false);
           }
-     }, [registerModal]);
+     }, [registerModal, email, password, username, name]);
 
      const bodyContent = (
           <div className="flex flex-col gap-4">
@@ -52,7 +69,7 @@ const RegisterModal = () => {
                <Input
                     placeholder="UserName"
                     onChange={(e) => setuserName(e.target.value)}
-                    value={userName}
+                    value={username}
                     disabled={loading}
                />
                <Input
