@@ -21,11 +21,13 @@ const SideBar = () => {
                label: "Notifications",
                href: "notifications",
                icon: BsBellFill,
+               auth: true,
           },
           {
                label: "Profile",
                href: "/user123",
                icon: FaUser,
+               auth: true,
           },
      ];
 
@@ -41,6 +43,7 @@ const SideBar = () => {
                                         href={item.href}
                                         icon={item.icon}
                                         label={item.label}
+                                        auth={item.auth}
                                    />
                               );
                          })}
