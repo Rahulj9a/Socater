@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const fetcher = (url: string) =>
-     axios.get("/api/current").then((res) => {
+     axios.get(url).then((res) => {
           return res.data;
      });
 
