@@ -21,7 +21,6 @@ const LoginModal = () => {
      const onSubmit = useCallback(async () => {
           try {
                setloading(true);
-               //Todo:add login
 
                loginModal.onClose();
           } catch (error) {
