@@ -1,7 +1,9 @@
 import useUsers from "@/Hooks/useUsers";
 import Avatar from "../Avatar";
+import { useRouter } from "next/router";
 
 const FollowBar = () => {
+     const router = useRouter();
      const { data: users = [] } = useUsers();
      if (users.length === 0) {
           return null;
@@ -17,8 +19,11 @@ const FollowBar = () => {
                          {users.map((user: Record<string, any>) => (
                               <div
                                    key={user.id}
-                                   className="flex flex-row gap-4">
-                                   <Avatar userId={user.Id} />
+                                   onClick={() =>
+                                        router.push(`/users/${user.id}`)
+                                   }
+                                   className="flex flex-row gap-4 cursor-pointer">
+                                   <Avatar userId={user.id} />
                                    <div className="flex flex-col">
                                         <p className="text-white font-semibold text-sm">
                                              {user.name}
