@@ -6,11 +6,13 @@ import RegisterModal from "@/Components/modals/RegisterModal";
 
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
+import EditModal from "@/Components/modals/EditModal";
 
 export default function App({ Component, pageProps }: AppProps) {
      return (
           <SessionProvider session={pageProps.session}>
                <Toaster />
+               <EditModal />
                <RegisterModal />
                <LoginModal />
                <Layout>

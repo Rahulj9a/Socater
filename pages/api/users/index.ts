@@ -10,12 +10,11 @@ export default async function handler(
      }
      try {
           const users = await prisma.user.findMany({
-               
                orderBy: {
                     createdAt: "desc",
                },
           });
-          console.log(users);
+
           return res.status(200).json(users);
      } catch (error) {
           console.log(error);
