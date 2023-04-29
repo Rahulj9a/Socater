@@ -31,7 +31,8 @@ const Button: React.FC<ButtonProps> = ({
                     ${large ? "py-3" : "py-2"}
                     ${outline ? "outline-transparent" : ""}
                     ${outline ? "border-white" : ""}
-                    ${outline ? "text-white" : ""}`}>
+                    ${outline ? "text-white" : ""}
+                    ${outline ? "bg-black" : ""}`}>
                {label}
           </button>
      );
