@@ -32,7 +32,7 @@ const PostItem: React.FC<PostItemProps> = ({ data, userId }) => {
 
      const onLike = useCallback(
           (event: any) => {
-               event.stopPropgation();
+               event.stopPropagation();
                loginModal.onOpen;
           },
           [loginModal],
