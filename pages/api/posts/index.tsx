@@ -50,8 +50,8 @@ export default async function handler(
                               createdAt: "desc",
                          },
                     });
-                    return res.status(200).json(posts);
                }
+               return res.status(200).json(posts);
           }
      } catch (error) {
           console.log(error);
