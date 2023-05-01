@@ -1,5 +1,6 @@
 import Form from "@/Components/Form";
 import Header from "@/Components/Header";
+import CommentFeed from "@/Components/posts/CommentFeed";
 import PostItem from "@/Components/posts/PostItem";
 import usePost from "@/Hooks/usePost";
 import { useRouter } from "next/router";
@@ -18,6 +19,7 @@ const postView = () => {
                </div>
           );
      }
+     console.log(fetchedPost?.comments);
      return (
           <>
                <Header label={"Tweet"} showBackArrow />
@@ -27,6 +29,8 @@ const postView = () => {
                     postId={postId as string}
                     isComment
                />
+
+               <CommentFeed comments={fetchedPost?.comments} />
           </>
      );
 };
