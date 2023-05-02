@@ -8,6 +8,7 @@ import { toast } from "react-hot-toast";
 import Button from "./Button";
 import RegisterModal from "./modals/RegisterModal";
 import Avatar from "./Avatar";
+import usePost from "@/Hooks/usePost";
 
 interface FormProps {
      placeholder: string;
@@ -20,6 +21,7 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
      const LoginModal = useLoginModal();
      const { data: currentUser } = usecurrentUser();
      const { mutate: mutatePosts } = usePosts();
+     const { mutate: mutatePost } = usePost();
      const [body, setBody] = useState("");
      const [isLoading, setisLoading] = useState(false);
 
