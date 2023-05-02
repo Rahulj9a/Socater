@@ -37,12 +37,13 @@ const Form: React.FC<FormProps> = ({ placeholder, isComment, postId }) => {
                toast.success("Tweet Created");
                setBody("");
                mutatePosts();
+               mutatePost();
           } catch (error) {
                toast.error("Something went wrong");
           } finally {
                setisLoading(false);
           }
-     }, [body, mutatePosts, isComment, postId]);
+     }, [body, mutatePosts, isComment, postId, mutatePost]);
 
      return (
           <div className="border-b-[1px] border-neutral-800 px-5 py-2 ">
