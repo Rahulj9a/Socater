@@ -6,7 +6,7 @@ import { useCallback, useMemo } from "react";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 
-const useLike = ({ postId, userId }: { postId: string; userId: string }) => {
+const useLike = ({ postId, userId }: { postId: string; userId?: string }) => {
      const { data: currentUser } = usecurrentUser();
      const { data: fetchedPost, mutate: mutateFetchedPost } = usePost(postId);
      const { mutate: mutateFetchedPosts } = usePosts(userId);
