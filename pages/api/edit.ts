@@ -10,7 +10,6 @@ export default async function handler(
           return res.status(405).end();
      }
      try {
-          console.log(req.body);
           const { currentUser } = await serverAuth(req, res);
 
           const { name, username, bio, profileImage, coverImage } = req.body;
