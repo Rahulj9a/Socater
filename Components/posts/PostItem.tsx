@@ -4,7 +4,7 @@ import { formatDistanceToNowStrict } from "date-fns";
 import { useRouter } from "next/router";
 import { useCallback, useMemo } from "react";
 import Avatar from "../Avatar";
-import { AiOutlineHeart, AiFillHeart, AiOutlineMessage } from "react-icons/Ai";
+import { AiOutlineHeart, AiFillHeart, AiOutlineMessage } from "react-icons/ai";
 import useLike from "@/Hooks/useLike";
 
 interface PostItemProps {
