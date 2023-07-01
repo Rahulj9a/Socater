@@ -6,7 +6,7 @@ import axios from "axios";
 import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 import Button from "./Button";
-import RegisterModal from "./modals/RegisterModal";
+ 
 import Avatar from "./Avatar";
 import usePost from "@/Hooks/usePost";
 

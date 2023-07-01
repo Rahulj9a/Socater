@@ -13,7 +13,7 @@ const SidebarTweetButton = () => {
                return loginModal.onOpen();
           }
           router.push("/");
-     }, [loginModal, currentUser]);
+     }, [loginModal,router, currentUser]);
 
      return (
           <div onClick={onClick}>
