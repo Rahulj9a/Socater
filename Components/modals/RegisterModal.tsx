@@ -31,7 +31,7 @@ const RegisterModal = () => {
                setloading(true);
 
                //add Register and login
-               console.log(name, username, password, email);
+               
                await axios.post("/api/register", {
                     email,
                     password,
